@@ -14,7 +14,7 @@ from collections import defaultdict
 from scipy import signal
 
 PASSENGER = 0
-PCAP_PATH = os.path.join(os.getcwd(), "csi_data")
+PCAP_PATH = os.getcwd()
 VIEW_LIST = ["head", "end"]
 SRC_ADDR_DICT = {"head": "IP_ADDRESS", "end": "IP_ADDRESS"}
 NUM_FILES = 400
