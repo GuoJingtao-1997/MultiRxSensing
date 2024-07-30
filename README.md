@@ -34,5 +34,9 @@ example - collect CSI data under 0-1 people scenarios from a device with IP addr
 ```
 
 ## Online Test
-Run 
+Run infer_model.py to start online test. Note that you need to modify the IP_ADDRESS and ACCESS_TOKEN to your own.
+
+```
+python infer_model.py
+```
 
