@@ -11,11 +11,6 @@ from torch.nn.utils import parametrizations as param_utils
 import torch.nn.functional as F
 from calflops import calculate_flops
 
-# from torchinfo import summary
-# import random
-# from create_csi_dataset.general_utils import attention_femp_fuse, attention_emb_fuse
-
-
 __all__ = ["MobileOne", "mobileone", "reparameterize_model"]
 
 
@@ -521,18 +516,3 @@ def reparameterize_model(model: torch.nn.Module, is_cls=True) -> nn.Module:
 
 if __name__ == "__main__":
     mobile = mobileone(num_classes=21, inference_mode=False, variant="s4")
-    input_shape = (1, 1, 100, 242)
-    flops, macs, params = calculate_flops(
-        model=mobile,
-        input_shape=input_shape,
-        output_as_string=True,
-        include_backPropagation=True,
-        ignore_modules=[nn.BatchNorm2d],
-        output_precision=3,
-    )
-    print("ConvNet4 FLOPs:%s   MACs:%s   Params:%s \n" % (flops, macs, params))
-    # summary(mobile, input_size=(1, 1, 100, 242))
-
-    # from tools import cal_flops_params
-
-    # flops, params = cal_flops_params(mobile, input_size=(1, 1, 100, 242))
