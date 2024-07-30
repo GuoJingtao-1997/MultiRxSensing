@@ -1,5 +1,5 @@
 # MultiRxSensing
-An implementation of CSI-based collaborative sensing with two receivers and several useful CSI data collection configuration shell scripts.
+An implementation of CSI-based collaborative sensing with two receivers and several useful CSI data collection configuration shell scripts. To collect CSI data simoutanously from two devices, you can install iTerm2 terminal emulator and use SHIFT+CMD+I (Mac command) to allow broadcast input to all panes in all tabs.
 
 ## Generate Ping Flow
 Run generate_traffic.sh to generate ping flow from router
@@ -34,7 +34,7 @@ example - collect CSI data under 0-1 people scenarios from a device with IP addr
 ```
 
 ## Online Test
-Run infer_model.py to start online test. Pytorch environment is needed. Note that you need to modify IP_ADDRESS and ACCESS_TOKEN parameters to your own. You may also customize NUM_FILES, and PASSENGER parameters to fit your own setting.
+Run infer_model.py to start online test using pre-trained model. Pytorch environment is needed. Note that you need to modify IP_ADDRESS and ACCESS_TOKEN parameters to your own. You may also customize NUM_FILES, and PASSENGER parameters to fit your own setting.
 
 ```
 python infer_model.py
