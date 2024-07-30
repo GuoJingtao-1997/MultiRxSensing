@@ -1,6 +1,17 @@
 # MultiRxSensing
 A simple implementation of CSI-based collaborative sensing with two receivers. Several useful CSI data collection configuration shell scripts are also included in this repo. To collect CSI data from two devices simultaneously, you can install [iTerm2](https://iterm2.com/) terminal emulator and use shift+cmd+i (Mac command) to allow broadcast input to all panes in all tabs.
 
+## Introduction
+| File                | Function                            | Device for Executing      |
+| :------------------ | :---------------------------------: | ------------------------: |
+| generate_traffic.sh | Generate Ping Flow                  | PC/Laptop/Edge device     |
+| csiparam_config.sh  | Configure CSI Collection Parameters | CSI receiver (e.g. Pi 4B) |
+| csi_forward.sh      | Setup CSI data forwarding rule      | CSI receiver (e.g. Pi 4B) |
+| packetcap_pc.sh     | CSI Data Collection                 | PC/Laptop/Edge device     |
+| infer_model.py      | Online Test                         | PC/Laptop/Edge device     |
+| Codecademy Hoodie   | Pretrained model for receiver A     | PC/Laptop/Edge device     |
+| Codecademy Hoodie   | Pretrained model for receiver B     | PC/Laptop/Edge device     |
+
 ## Generate Ping Flow
 Run generate_traffic.sh to generate ping flow from router
 
