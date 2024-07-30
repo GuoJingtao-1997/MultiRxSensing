@@ -1,5 +1,5 @@
 # MultiRxSensing
-An implementation of CSI-based collaborative sensing with two receivers and several useful CSI data collection configuration shell scripts. To collect CSI data simoutanously from two devices, you can install iTerm2 terminal emulator and use SHIFT+CMD+I (Mac command) to allow broadcast input to all panes in all tabs.
+An implementation of CSI-based collaborative sensing with two receivers and several useful CSI data collection configuration shell scripts. To collect CSI data simoutanously from two devices, you can install [iTerm2](https://iterm2.com/) terminal emulator and use SHIFT+CMD+I (Mac command) to allow broadcast input to all panes in all tabs.
 
 ## Generate Ping Flow
 Run generate_traffic.sh to generate ping flow from router
