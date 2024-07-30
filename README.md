@@ -1,7 +1,7 @@
 # MultiRxSensing
 An implementation of CSI-based collaborative sensing with two receivers and several useful CSI data collection configuration shell scripts.
 
-## Generating Ping Flow
+## Generate Ping Flow
 Run generate_traffic.sh to generate ping flow from router
 
 example - generate ping flow with 1000 Hz:
