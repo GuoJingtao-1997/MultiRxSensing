@@ -9,8 +9,8 @@ A simple implementation of CSI-based collaborative sensing with two receivers. S
 | csi_forward.sh      | Setup CSI data forwarding rule      | CSI receiver (e.g. Pi 4B) |
 | packetcap_pc.sh     | CSI Data Collection                 | PC/Laptop/Edge device     |
 | infer_model.py      | Online Test                         | PC/Laptop/Edge device     |
-| 613_end_mos4.pth    | Pretrained model for receiver A     | PC/Laptop/Edge device     |
-| 613_head_mos4.pth   | Pretrained model for receiver B     | PC/Laptop/Edge device     |
+| 613_end_mos4.pth    | Pretrained model pth for receiver A | PC/Laptop/Edge device     |
+| 613_head_mos4.pth   | Pretrained model pth for receiver B | PC/Laptop/Edge device     |
 
 ## Generate Ping Flow
 Run generate_traffic.sh to generate ping flow from router
