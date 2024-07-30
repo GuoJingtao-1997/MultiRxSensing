@@ -4,9 +4,6 @@
  # @Date: 2022-04-02 18:53:40
  # @LastEditTime: 2023-01-16 20:38:22
  # @LastEditors: Guo Jingtao
- # @Description: 
- # @FilePath: /undefined/Users/guojingtao/Documents/pi_config_files/packetcap_pc.sh
- # 
 ### 
 
 if [ ! -d "$1" ];then
