@@ -34,9 +34,10 @@ example - collect CSI data under 0-1 people scenarios from a device with IP addr
 ```
 
 ## Online Test
-Run infer_model.py to start online test. Note that you need to modify IP_ADDRESS and ACCESS_TOKEN parameters to your own. You may also customize NUM_FILES, and PASSENGER parameters to fit your own setting.
+Run infer_model.py to start online test. Pytorch environment is needed. Note that you need to modify IP_ADDRESS and ACCESS_TOKEN parameters to your own. You may also customize NUM_FILES, and PASSENGER parameters to fit your own setting.
 
 ```
 python infer_model.py
 ```
+
 
