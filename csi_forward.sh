@@ -4,9 +4,6 @@
  # @Date: 2022-04-02 18:53:40
  # @LastEditTime: 2024-07-30 10:47:15
  # @LastEditors: Guo Jingtao
- # @Description: 
- # @FilePath: /Users/guojingtao/Documents/pi_config_files/csi_forward.sh
- # 
 ### 
 
 nft add table ip nexmon
