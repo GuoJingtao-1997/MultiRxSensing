@@ -4,8 +4,6 @@ import torchvision.transforms as transforms
 from mobileones import mobileone, reparameterize_model
 import os
 import multiprocessing as mp
-from utils import setup_seed
-from fusion import realtime_csi_read
 from nexcsi import decoder
 import subprocess
 import time
