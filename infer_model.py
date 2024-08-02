@@ -132,7 +132,6 @@ def realtime_csi_read(pcap_idx: int, view: str):
     print(
         f"Collecting CSI from {SRC_ADDR_DICT[view]}, pid is {os.getpid()}, time is {time.ctime()}"
     )
-    csi_deagc = np.random.rand(300, 242)
     start_time = time.time()
 
     pcap_file = f"{pcap_idx}.pcap"
