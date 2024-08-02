@@ -188,8 +188,8 @@ if __name__ == "__main__":
             result_list[view] = p.apply_async(
                 realtime_csi_read, args=(i, view)
             )
-        CSI_DICT["head"].append(result_list["head"].get())[np.newaxis, np.newaxis, :]
-        CSI_DICT["end"].append(result_list["end"].get())[np.newaxis, np.newaxis, :]
+        CSI_DICT["head"].append(result_list["head"].get()[np.newaxis, np.newaxis, :])
+        CSI_DICT["end"].append(result_list["end"].get()[np.newaxis, np.newaxis, :])
 
         sub_end_time = time.time()
         for head_csi, end_csi in zip(CSI_DICT["head"], CSI_DICT["end"]):
