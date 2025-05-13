@@ -1,16 +1,27 @@
+<!--
+ * @Author: Guo Jingtao
+ * @Date: 2025-04-19 16:31:25
+ * @LastEditTime: 2025-04-29 23:44:01
+ * @LastEditors: Guo Jingtao
+ * @Description: 
+ * @FilePath: /MultiRxSensing/README.md
+ * 
+-->
 # MultiRxSensing
 A simple implementation of CSI-based collaborative sensing with two receivers. Several useful CSI data collection configuration shell scripts are also included in this repo. To collect CSI data from two devices simultaneously, you can install [iTerm2](https://iterm2.com/) terminal emulator and use shift+cmd+i (Mac command) to allow broadcast input to all panes in all tabs.
 
 ## Introduction
-| File                | Function                            | Device for Executing      |
-| :------------------ | :---------------------------------: | ------------------------: |
-| generate_traffic.sh | Generate Ping Flow                  | PC/Laptop/Edge device     |
-| csiparam_config.sh  | Configure CSI Collection Parameters | CSI receiver (e.g. Pi 4B) |
-| csi_forward.sh      | Setup CSI data forwarding rule      | CSI receiver (e.g. Pi 4B) |
-| packetcap_pc.sh     | CSI Data Collection                 | PC/Laptop/Edge device     |
-| infer_model.py      | Online Test                         | PC/Laptop/Edge device     |
-| 613_end_mos4.pth    | Pretrained model pth for receiver A | PC/Laptop/Edge device     |
-| 613_head_mos4.pth   | Pretrained model pth for receiver B | PC/Laptop/Edge device     |
+| File                          | Function                                           | Device for Executing      |
+| :---------------------------- | :-------------------------------------------------: | ------------------------: |
+| `generate_traffic.sh`         | Generate Ping Flow                                 | PC/Laptop/Edge device     |
+| `csiparam_config.sh`          | Configure CSI Collection Parameters                | CSI receiver (e.g. Pi 4B) |
+| `csi_forward.sh`              | Setup CSI data forwarding rule                     | CSI receiver (e.g. Pi 4B) |
+| `packetcap_pc.sh`             | CSI Data Collection                                | PC/Laptop/Edge device     |
+| `infer_model.py`              | Online Test with Probability Average               | PC/Laptop/Edge device     |
+| `613_end_mos4.pth`            | Pretrained model pth for receiver A                | PC/Laptop/Edge device     |
+| `613_head_mos4.pth`           | Pretrained model pth for receiver B                | PC/Laptop/Edge device     |
+| `memory_bank_construction.py` | Memory Bank Construction                           | PC/Laptop/Edge device     |
+| `online_data_collect_test.py` | Online Data Collection and Testing with Memory Bank | PC/Laptop/Edge device     |
 
 ## Generate Ping Flow
 Run generate_traffic.sh to generate ping flow from router
@@ -44,11 +55,36 @@ example - collect CSI data under 0-1 people scenarios from a device with IP addr
 . packetcap_pc.sh test 0 1 1 500 1000 192.168.3.11
 ```
 
-## Online Test
-Run infer_model.py to start online test using pre-trained model. Pytorch environment is needed. Note that you need to modify IP_ADDRESS and ACCESS_TOKEN parameters to your own. You may also customize NUM_FILES, and PASSENGER parameters to fit your own setting.
+## Online Test with Probability Average
+Run infer_model.py to start online test with probability average using two pre-trained models. Pytorch environment is needed. Note that you need to modify IP_ADDRESS and ACCESS_TOKEN parameters to your own. You may also customize NUM_FILES, and PASSENGER parameters to fit your own setting.
 
 ```
 python infer_model.py
 ```
 
+## Memory Bank Construction
+Run memory_bank_construction.py to start memory bank construction. 
+
+example - construct memory bank for date collected from Feb 7th using the backbone pretrained on data collected from Jan. 9th:
+```
+python memory_bank_construction.py --pretrain_date 19 --train_date 27 --test_date 27 --aug lp_sg_1000 --num_class 11 --num_test_class 11 --use_knn --status both --k 25 --bank_type "memory" --long_duration_pred --diff_pos --idx 0 1 2
+```
+
+## Online Data Collection and Testing with Memory Bank
+
+Run online_data_collect_test.py to start online data collection and testing with memory bank.
+
+example - collect data for April 8th and test with memory bank constructed from data collected from Feb 7th:
+```
+python online_data_collect_test.py --num_class 15 --pretrained_date 27 --passenger 4 --predict_tolerance 3 --save_date 48 --status rm --pretrained_status mm --predict_duration 4 --num_train_times 7 --beta 0.16 --temp 0.1 --haddr 192.168.1.92 --eaddr 192.168.1.24 --k 25 --aug lp_sg_1000 --single_load
+```
+
+## Online Testing with Memory Bank
+
+Run online_test.py to start online data collection and testing with memory bank.
+
+example - testing in April 8th with memory bank constructed from data collected from April 8th:
+```
+python online_test.py --num_class 15 --pretrained_date 48 --passenger 4 --save_date 48 --status rm --pretrained_status mm --predict_duration 4 --threshold 0.1 --temp 0.1 --haddr 192.168.1.92 --eaddr 192.168.1.24 --k 25 --aug lp_sg_1000 --single_load
+```
 

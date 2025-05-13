@@ -66,7 +66,7 @@ def model_load(checkpoint_path: str, device):
     checkpoint = torch.load(
         os.path.join(
             os.getcwd(),
-            f"613_{checkpoint_path}_mos4.pth",
+            f"pretrained_models/613_{checkpoint_path}_mos4.pth",
         ),
         map_location=lambda storage, loc: storage,
     )
