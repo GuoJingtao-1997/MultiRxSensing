@@ -6,7 +6,7 @@ import os
 import multiprocessing as mp
 from tqdm import tqdm
 from sklearn import metrics
-from sklearn.preprocessing import label_binarize
+from sklearn.preprocessing import label_binarize·
 from adapt_algo import AdaNPC, KNN
 from utils import setup_seed
 from fusion import realtime_csi_read
