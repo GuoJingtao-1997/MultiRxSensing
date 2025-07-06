@@ -8,7 +8,7 @@
  * 
 -->
 # MultiRxSensing
-A simple implementation of CSI-based collaborative sensing with two receivers. Several useful CSI data collection configuration shell scripts are also included in this repo. To collect CSI data from two devices simultaneously, you can install [iTerm2](https://iterm2.com/) terminal emulator and use shift+cmd+i (Mac command) to allow broadcast input to all panes in all tabs.
+A simple implementation of CSI-based collaborative sensing with two receivers. This is also the open-source version of our WCNC paper - [RSSI-Assisted CSI-Based Passenger Counting with Multiple Wi-Fi Receivers](10.1109/WCNC61545.2025.10978465). Several useful CSI data collection configuration shell scripts are also included in this repo. To collect CSI data from two devices simultaneously, you can install [iTerm2](https://iterm2.com/) terminal emulator and use shift+cmd+i (Mac command) to allow broadcast input to all panes in all tabs.
 
 ## Introduction
 | File                          | Function                                           | Device for Executing      |
